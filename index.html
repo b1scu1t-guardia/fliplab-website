@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flip.lab – Flipper Zero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home">
+
+<div class="bar pad">
+  <button class="brand" data-go="accueil" aria-label="Accueil">Flip<b>.</b>lab</button>
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+</div>
+<nav class="menu" id="menu" aria-label="Navigation principale">
+  <div class="veil"></div>
+  <a href="#/accueil" data-go="accueil" data-k="accueil">Accueil</a>
+  <a href="#/fonctions" data-go="fonctions" data-k="fonctions">Fonctions</a>
+  <a href="#/specs" data-go="specs" data-k="specs">Fiche technique</a>
+  <a href="#/contact" data-go="contact" data-k="contact">Contact</a>
+  <p>À utiliser sur vos propres appareils, ou avec autorisation.</p>
+</nav>
+
+<!-- ACCUEIL -->
+<div class="page" id="p-accueil">
+  <header id="hero">
+    <div class="stage">
+      <div class="title" id="title">
+        <h1>Le multi-outil des curieux du hardware.</h1>
+        <p>Radio, RFID, NFC, infrarouge, GPIO : un boîtier de poche pour comprendre comment les objets communiquent.</p>
+        <button class="btn" data-go="fonctions">Voir les fonctions</button>
+      </div>
+      <canvas id="gl" role="img" aria-label="Modèle 3D du Flipper Zero"></canvas>
+      <div class="dpad" id="pad" data-m="closed" role="group" aria-label="Boutons du Flipper : choisir une page">
+        <button class="k" data-k="up" aria-label="Haut"></button><button class="k" data-k="down" aria-label="Bas"></button>
+        <button class="k" data-k="left" aria-label="Gauche, retour"></button><button class="k right" data-k="right" aria-label="Droite, ouvrir le menu"></button>
+        <button class="k ok" data-k="ok" aria-label="Rond du milieu, ouvrir la page"></button>
+      </div>
+      <div class="cap" id="cap" aria-live="polite"></div>
+      <div class="hint" id="hint">Défiler<i></i></div>
+    </div>
+  </header>
+  <section id="stats" class="" aria-label="Chiffres clés">
+    <div class="sticky pad">
+      <h2>Petit boîtier, grosse marge de manœuvre.</h2>
+      <div class="grid">
+        <div><div class="n" data-t="64" data-s=" MHz">0</div><div class="l">Processeur principal</div><div class="meter"><b></b></div></div>
+        <div><div class="n" data-t="2000" data-s=" mAh">0</div><div class="l">Batterie</div><div class="meter"><b></b></div></div>
+        <div><div class="n" data-t="18" data-s="">0</div><div class="l">Broches GPIO</div><div class="meter"><b></b></div></div>
+        <div><div class="n" data-t="102" data-s=" g">0</div><div class="l">Dans la poche</div><div class="meter"><b></b></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec pad">
+    <h2 class="head">Aller plus loin.</h2>
+    <div class="rows">
+      <a class="row" href="#/fonctions" data-go="fonctions"><h3>Fonctions</h3><p>Ce que le boîtier sait lire, émettre et émuler.</p></a>
+      <a class="row" href="#/specs" data-go="specs"><h3>Fiche technique</h3><p>Processeur, radio, mémoire, dimensions.</p></a>
+      <a class="row" href="#/contact" data-go="contact"><h3>Contact</h3><p>Une question, une idée de projet.</p></a>
+    </div>
+  </section>
+</div>
+
+<!-- FONCTIONS -->
+<div class="page" id="p-fonctions" hidden>
+  <section class="sub sec pad">
+    <h1 class="head">Tout ce qu'il sait faire.</h1>
+    <div class="rows">
+      <div class="row"><h3>Sub-GHz</h3><p>Écoute et émet sur les fréquences radio des télécommandes, portails et capteurs sans fil.</p></div>
+      <div class="row"><h3>RFID 125 kHz</h3><p>Lit et copie les badges d'accès basse fréquence que vous possédez.</p></div>
+      <div class="row"><h3>NFC</h3><p>Lit les cartes et étiquettes NFC pour en comprendre la structure.</p></div>
+      <div class="row"><h3>Infrarouge</h3><p>Apprend les signaux de vos télécommandes et les rejoue : TV, climatisation, enceintes.</p></div>
+      <div class="row"><h3>GPIO</h3><p>Branchez capteurs, cartes d'extension et microcontrôleurs pour vos montages.</p></div>
+      <div class="row"><h3>USB et Bluetooth</h3><p>Se connecte à l'ordinateur et au téléphone pour piloter et mettre à jour l'appareil.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- SPECS -->
+<div class="page" id="p-specs" hidden>
+  <section class="sub sec pad">
+    <h1 class="head">Fiche technique.</h1>
+    <dl>
+      <div class="spec"><dt>Processeur</dt><dd>ARM Cortex-M4 à 64 MHz, plus Cortex-M0+ à 32 MHz</dd></div>
+      <div class="spec"><dt>Mémoire</dt><dd>1 Mo de flash, 256 Ko de RAM, lecteur microSD</dd></div>
+      <div class="spec"><dt>Écran</dt><dd>LCD monochrome 128 × 64</dd></div>
+      <div class="spec"><dt>Radio sub-GHz</dt><dd>300 à 928 MHz selon la région</dd></div>
+      <div class="spec"><dt>RFID / NFC</dt><dd>125 kHz et 13,56 MHz</dd></div>
+      <div class="spec"><dt>Sans fil</dt><dd>Bluetooth Low Energy</dd></div>
+      <div class="spec"><dt>Connectique</dt><dd>USB-C, 18 broches GPIO, infrarouge</dd></div>
+      <div class="spec"><dt>Batterie</dt><dd>2000 mAh</dd></div>
+      <div class="spec"><dt>Taille et poids</dt><dd>100 × 40 × 25 mm, environ 102 g</dd></div>
+    </dl>
+    <p class="note">Valeurs indicatives : vérifiez la fiche officielle du fabricant avant de publier.</p>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="p-contact" hidden>
+  <section class="sub sec pad">
+    <h1 class="head">Une question, une idée ?</h1>
+    <a class="mail" href="mailto:contact@exemple.fr">contact@exemple.fr</a>
+    <p class="note">Remplacez cette adresse par la vôtre. Utilisez le Flipper Zero uniquement sur vos propres appareils ou avec l'accord de leur propriétaire.</p>
+  </section>
+</div>
+
+<footer class="pad">© 2026 Flip.lab</footer>
+<script src="js/three.min.js"></script>
+<script src="js/GLTFLoader.js"></script>
+<script src="js/model-data.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
